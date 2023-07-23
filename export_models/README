@@ -1,0 +1,6 @@
+This code is pretty messy - if you want to use it and can figure it out, great
+
+The Mario Super Sluggers assets are all in a large .dat file.
+From 0x8067f668 to 0x806A0728, the .dol file has an entry for the address and length of each file in the .dat file (technically three for en, sp, and fr localization, but these are often the same).
+There's another section of memory from 0x806a0728 to 0x806a09d8 pointing at certain entries, all the entries from that pointer to the next are essentially in the same folder and refer to the same asset (a character model, a stadium, etc.)
+To run the export script, copy the chunk of the dol with file entries into ../bin/dat_files, and the chunk of folder pointers into ../bin/groups (This could work with just the .dol and the addresses of both of those files, but I already had those sections on hand), then copy the dat into ../bin/dt_na.dat. The script will loop through all the files and export an obj file(s) for each c3 file it finds. I didn't bother with anything more than a try-catch around a c3 file to obj converter and some minimal error checking/file magic checks, so there could be false positives or files that stall the program by looking like matches long enough to process a bunch of garbage data. This works well enough, but some file magic checking would probably speed stuff up.
