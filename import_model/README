@@ -2,3 +2,4 @@ Put a folder in this directory with an obj file called 'stadium.obj' and a mtl f
 Switch the OBJImport at the end of the file to that folder.
 Run import.py, a c3 file named out will be created in that folder.
 Shadows are weird, there's some hacky logic in the shadowType method of TextureGroup that you might need to play with.
+This assumes you have the Wiimms tools on your path (specifically wimgt)
