@@ -1,3 +1,4 @@
 Point the Stadium object at the end of parse.py (more path hardcoding, I know) to a collision file and run it, it'll make a folder in that directory.
 There will be one obj file per unique collision type in the file with all the triangles of that type, as well as a.obj which shows the bounding boxes.
 To use import.py, make a folder of obj files named after their collision type (eg triangles of collision type 0x81 are in 81.obj), point the OBJImport at the end of the file to that folder, and run import.py. It'll make a collision file called out in that folder (which only has one large bounding zone so probably isn't performant, but its worked for me).
+Collision files in MSS have their y and z coordinates multiplied by -1 when they're loaded, so if you're importing collision align it with the stadium, then flip it 180 degrees around the x axis.
