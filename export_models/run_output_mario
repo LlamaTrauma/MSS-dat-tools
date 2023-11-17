@@ -1,0 +1,689 @@
+0x5dfe0 - Skin
+    SK1 count: 0x25
+    SK2 count: 0x1e
+    SKAcc count: 0x24
+    Quantization info: 0xb
+    0x5e004 - SK1 struct
+        Vertex arr: 0x60080
+        Offset: 0x0
+        Vertex arr in GPL: 0x0
+        Vertex count: 0x36
+        Bone index: 0x5
+    0x5e044 - SK1 struct
+        Vertex arr: 0x60320
+        Offset: 0x0
+        Vertex arr in GPL: 0x2a0
+        Vertex count: 0x9
+        Bone index: 0x7
+    0x5e084 - SK1 struct
+        Vertex arr: 0x603a0
+        Offset: 0x4
+        Vertex arr in GPL: 0x320
+        Vertex count: 0x5f
+        Bone index: 0x9
+    0x5e0c4 - SK1 struct
+        Vertex arr: 0x60820
+        Offset: 0x4
+        Vertex arr in GPL: 0x7a0
+        Vertex count: 0x1b
+        Bone index: 0xa
+    0x5e104 - SK1 struct
+        Vertex arr: 0x60980
+        Offset: 0x0
+        Vertex arr in GPL: 0x900
+        Vertex count: 0x9
+        Bone index: 0xc
+    0x5e144 - SK1 struct
+        Vertex arr: 0x60a00
+        Offset: 0x4
+        Vertex arr in GPL: 0x980
+        Vertex count: 0x5f
+        Bone index: 0xe
+    0x5e184 - SK1 struct
+        Vertex arr: 0x60e80
+        Offset: 0x4
+        Vertex arr in GPL: 0xe00
+        Vertex count: 0x1b
+        Bone index: 0xf
+    0x5e1c4 - SK1 struct
+        Vertex arr: 0x60fe0
+        Offset: 0x0
+        Vertex arr in GPL: 0xf60
+        Vertex count: 0x3c
+        Bone index: 0x12
+    0x5e204 - SK1 struct
+        Vertex arr: 0x612c0
+        Offset: 0x8
+        Vertex arr in GPL: 0x1240
+        Vertex count: 0x56
+        Bone index: 0x1c
+    0x5e244 - SK1 struct
+        Vertex arr: 0x616e0
+        Offset: 0x8
+        Vertex arr in GPL: 0x1660
+        Vertex count: 0xa
+        Bone index: 0x1f
+    0x5e284 - SK1 struct
+        Vertex arr: 0x61760
+        Offset: 0x0
+        Vertex arr in GPL: 0x16e0
+        Vertex count: 0x5
+        Bone index: 0x21
+    0x5e2c4 - SK1 struct
+        Vertex arr: 0x617a0
+        Offset: 0x8
+        Vertex arr in GPL: 0x1720
+        Vertex count: 0x8
+        Bone index: 0x22
+    0x5e304 - SK1 struct
+        Vertex arr: 0x61820
+        Offset: 0x0
+        Vertex arr in GPL: 0x17a0
+        Vertex count: 0xe
+        Bone index: 0x23
+    0x5e344 - SK1 struct
+        Vertex arr: 0x618e0
+        Offset: 0x0
+        Vertex arr in GPL: 0x1860
+        Vertex count: 0x5
+        Bone index: 0x25
+    0x5e384 - SK1 struct
+        Vertex arr: 0x61920
+        Offset: 0x8
+        Vertex arr in GPL: 0x18a0
+        Vertex count: 0x8
+        Bone index: 0x26
+    0x5e3c4 - SK1 struct
+        Vertex arr: 0x619a0
+        Offset: 0x0
+        Vertex arr in GPL: 0x1920
+        Vertex count: 0xe
+        Bone index: 0x27
+    0x5e404 - SK1 struct
+        Vertex arr: 0x61a60
+        Offset: 0x0
+        Vertex arr in GPL: 0x19e0
+        Vertex count: 0x5
+        Bone index: 0x29
+    0x5e444 - SK1 struct
+        Vertex arr: 0x61aa0
+        Offset: 0x8
+        Vertex arr in GPL: 0x1a20
+        Vertex count: 0x8
+        Bone index: 0x2a
+    0x5e484 - SK1 struct
+        Vertex arr: 0x61b20
+        Offset: 0x0
+        Vertex arr in GPL: 0x1aa0
+        Vertex count: 0xe
+        Bone index: 0x2b
+    0x5e4c4 - SK1 struct
+        Vertex arr: 0x61be0
+        Offset: 0x0
+        Vertex arr in GPL: 0x1b60
+        Vertex count: 0x3
+        Bone index: 0x2d
+    0x5e504 - SK1 struct
+        Vertex arr: 0x61c20
+        Offset: 0x8
+        Vertex arr in GPL: 0x1ba0
+        Vertex count: 0x9
+        Bone index: 0x2e
+    0x5e544 - SK1 struct
+        Vertex arr: 0x61ca0
+        Offset: 0x0
+        Vertex arr in GPL: 0x1c20
+        Vertex count: 0xe
+        Bone index: 0x2f
+    0x5e584 - SK1 struct
+        Vertex arr: 0x61d60
+        Offset: 0x0
+        Vertex arr in GPL: 0x1ce0
+        Vertex count: 0xa
+        Bone index: 0x32
+    0x5e5c4 - SK1 struct
+        Vertex arr: 0x61de0
+        Offset: 0x4
+        Vertex arr in GPL: 0x1d60
+        Vertex count: 0x56
+        Bone index: 0x40
+    0x5e604 - SK1 struct
+        Vertex arr: 0x62200
+        Offset: 0x4
+        Vertex arr in GPL: 0x2180
+        Vertex count: 0xa
+        Bone index: 0x43
+    0x5e644 - SK1 struct
+        Vertex arr: 0x62280
+        Offset: 0x8
+        Vertex arr in GPL: 0x2200
+        Vertex count: 0x5
+        Bone index: 0x45
+    0x5e684 - SK1 struct
+        Vertex arr: 0x622e0
+        Offset: 0x8
+        Vertex arr in GPL: 0x2260
+        Vertex count: 0x8
+        Bone index: 0x46
+    0x5e6c4 - SK1 struct
+        Vertex arr: 0x62360
+        Offset: 0x0
+        Vertex arr in GPL: 0x22e0
+        Vertex count: 0xe
+        Bone index: 0x47
+    0x5e704 - SK1 struct
+        Vertex arr: 0x62420
+        Offset: 0x0
+        Vertex arr in GPL: 0x23a0
+        Vertex count: 0x5
+        Bone index: 0x49
+    0x5e744 - SK1 struct
+        Vertex arr: 0x62460
+        Offset: 0x8
+        Vertex arr in GPL: 0x23e0
+        Vertex count: 0x8
+        Bone index: 0x4a
+    0x5e784 - SK1 struct
+        Vertex arr: 0x624e0
+        Offset: 0x0
+        Vertex arr in GPL: 0x2460
+        Vertex count: 0xe
+        Bone index: 0x4b
+    0x5e7c4 - SK1 struct
+        Vertex arr: 0x625a0
+        Offset: 0x0
+        Vertex arr in GPL: 0x2520
+        Vertex count: 0x5
+        Bone index: 0x4d
+    0x5e804 - SK1 struct
+        Vertex arr: 0x625e0
+        Offset: 0x8
+        Vertex arr in GPL: 0x2560
+        Vertex count: 0x8
+        Bone index: 0x4e
+    0x5e844 - SK1 struct
+        Vertex arr: 0x62660
+        Offset: 0x0
+        Vertex arr in GPL: 0x25e0
+        Vertex count: 0xe
+        Bone index: 0x4f
+    0x5e884 - SK1 struct
+        Vertex arr: 0x62720
+        Offset: 0x0
+        Vertex arr in GPL: 0x26a0
+        Vertex count: 0x3
+        Bone index: 0x51
+    0x5e8c4 - SK1 struct
+        Vertex arr: 0x62760
+        Offset: 0x8
+        Vertex arr in GPL: 0x26e0
+        Vertex count: 0x9
+        Bone index: 0x52
+    0x5e904 - SK1 struct
+        Vertex arr: 0x627e0
+        Offset: 0x0
+        Vertex arr in GPL: 0x2760
+        Vertex count: 0xe
+        Bone index: 0x53
+    0x5e944 - SK2 struct
+        Vertex arr: 0x628a0
+        Vertex arr in GPL: 0x2820
+        Weight arr: 0x65600
+        Vertex count: 0xa
+        Bone index 1: 0x39
+        Bone index 2: 0x3b
+    0x5e9b8 - SK2 struct
+        Vertex arr: 0x62920
+        Vertex arr in GPL: 0x28a0
+        Weight arr: 0x65620
+        Vertex count: 0xa
+        Bone index 1: 0x15
+        Bone index 2: 0x17
+    0x5ea2c - SK2 struct
+        Vertex arr: 0x629a0
+        Vertex arr in GPL: 0x2920
+        Weight arr: 0x65640
+        Vertex count: 0x32
+        Bone index 1: 0x5
+        Bone index 2: 0x7
+    0x5eaa0 - SK2 struct
+        Vertex arr: 0x62c00
+        Vertex arr in GPL: 0x2b80
+        Weight arr: 0x656c0
+        Vertex count: 0x33
+        Bone index 1: 0x5
+        Bone index 2: 0xc
+    0x5eb14 - SK2 struct
+        Vertex arr: 0x62e80
+        Vertex arr in GPL: 0x2e00
+        Weight arr: 0x65740
+        Vertex count: 0xd2
+        Bone index 1: 0x5
+        Bone index 2: 0x11
+    0x5eb88 - SK2 struct
+        Vertex arr: 0x63860
+        Vertex arr in GPL: 0x37e0
+        Weight arr: 0x65900
+        Vertex count: 0x3d
+        Bone index 1: 0x7
+        Bone index 2: 0x8
+    0x5ebfc - SK2 struct
+        Vertex arr: 0x63b40
+        Vertex arr in GPL: 0x3ac0
+        Weight arr: 0x65980
+        Vertex count: 0x13
+        Bone index 1: 0x8
+        Bone index 2: 0x9
+    0x5ec70 - SK2 struct
+        Vertex arr: 0x63c40
+        Vertex arr in GPL: 0x3bc0
+        Weight arr: 0x659c0
+        Vertex count: 0xb
+        Bone index 1: 0x9
+        Bone index 2: 0xa
+    0x5ece4 - SK2 struct
+        Vertex arr: 0x63ce0
+        Vertex arr in GPL: 0x3c60
+        Weight arr: 0x659e0
+        Vertex count: 0x3d
+        Bone index 1: 0xc
+        Bone index 2: 0xd
+    0x5ed58 - SK2 struct
+        Vertex arr: 0x63fc0
+        Vertex arr in GPL: 0x3f40
+        Weight arr: 0x65a60
+        Vertex count: 0x13
+        Bone index 1: 0xd
+        Bone index 2: 0xe
+    0x5edcc - SK2 struct
+        Vertex arr: 0x640c0
+        Vertex arr in GPL: 0x4040
+        Weight arr: 0x65aa0
+        Vertex count: 0xb
+        Bone index 1: 0xe
+        Bone index 2: 0xf
+    0x5ee40 - SK2 struct
+        Vertex arr: 0x64160
+        Vertex arr in GPL: 0x40e0
+        Weight arr: 0x65ac0
+        Vertex count: 0x5f
+        Bone index 1: 0x11
+        Bone index 2: 0x12
+    0x5eeb4 - SK2 struct
+        Vertex arr: 0x645e0
+        Vertex arr in GPL: 0x4560
+        Weight arr: 0x65b80
+        Vertex count: 0x8
+        Bone index 1: 0x12
+        Bone index 2: 0x14
+    0x5ef28 - SK2 struct
+        Vertex arr: 0x64640
+        Vertex arr in GPL: 0x45c0
+        Weight arr: 0x65ba0
+        Vertex count: 0x8
+        Bone index 1: 0x12
+        Bone index 2: 0x38
+    0x5ef9c - SK2 struct
+        Vertex arr: 0x646a0
+        Vertex arr in GPL: 0x4620
+        Weight arr: 0x65bc0
+        Vertex count: 0x1b
+        Bone index 1: 0x14
+        Bone index 2: 0x15
+    0x5f010 - SK2 struct
+        Vertex arr: 0x64800
+        Vertex arr in GPL: 0x4780
+        Weight arr: 0x65c00
+        Vertex count: 0x14
+        Bone index 1: 0x17
+        Bone index 2: 0x18
+    0x5f084 - SK2 struct
+        Vertex arr: 0x64900
+        Vertex arr in GPL: 0x4880
+        Weight arr: 0x65c40
+        Vertex count: 0xa
+        Bone index 1: 0x19
+        Bone index 2: 0x1b
+    0x5f0f8 - SK2 struct
+        Vertex arr: 0x64980
+        Vertex arr in GPL: 0x4900
+        Weight arr: 0x65c60
+        Vertex count: 0x3a
+        Bone index 1: 0x19
+        Bone index 2: 0x1c
+    0x5f16c - SK2 struct
+        Vertex arr: 0x64c40
+        Vertex arr in GPL: 0x4bc0
+        Weight arr: 0x65ce0
+        Vertex count: 0x7
+        Bone index 1: 0x1c
+        Bone index 2: 0x1d
+    0x5f1e0 - SK2 struct
+        Vertex arr: 0x64ca0
+        Vertex arr in GPL: 0x4c20
+        Weight arr: 0x65d00
+        Vertex count: 0xc
+        Bone index 1: 0x1d
+        Bone index 2: 0x1e
+    0x5f254 - SK2 struct
+        Vertex arr: 0x64d40
+        Vertex arr in GPL: 0x4cc0
+        Weight arr: 0x65d20
+        Vertex count: 0x7
+        Bone index 1: 0x1e
+        Bone index 2: 0x1f
+    0x5f2c8 - SK2 struct
+        Vertex arr: 0x64dc0
+        Vertex arr in GPL: 0x4d40
+        Weight arr: 0x65d40
+        Vertex count: 0x3
+        Bone index 1: 0x2e
+        Bone index 2: 0x2f
+    0x5f33c - SK2 struct
+        Vertex arr: 0x64e00
+        Vertex arr in GPL: 0x4d80
+        Weight arr: 0x65d60
+        Vertex count: 0x1b
+        Bone index 1: 0x38
+        Bone index 2: 0x39
+    0x5f3b0 - SK2 struct
+        Vertex arr: 0x64f60
+        Vertex arr in GPL: 0x4ee0
+        Weight arr: 0x65da0
+        Vertex count: 0x14
+        Bone index 1: 0x3b
+        Bone index 2: 0x3c
+    0x5f424 - SK2 struct
+        Vertex arr: 0x65060
+        Vertex arr in GPL: 0x4fe0
+        Weight arr: 0x65de0
+        Vertex count: 0xa
+        Bone index 1: 0x3d
+        Bone index 2: 0x3f
+    0x5f498 - SK2 struct
+        Vertex arr: 0x650e0
+        Vertex arr in GPL: 0x5060
+        Weight arr: 0x65e00
+        Vertex count: 0x3a
+        Bone index 1: 0x3d
+        Bone index 2: 0x40
+    0x5f50c - SK2 struct
+        Vertex arr: 0x653a0
+        Vertex arr in GPL: 0x5320
+        Weight arr: 0x65e80
+        Vertex count: 0x7
+        Bone index 1: 0x40
+        Bone index 2: 0x41
+    0x5f580 - SK2 struct
+        Vertex arr: 0x65420
+        Vertex arr in GPL: 0x53a0
+        Weight arr: 0x65ea0
+        Vertex count: 0xc
+        Bone index 1: 0x41
+        Bone index 2: 0x42
+    0x5f5f4 - SK2 struct
+        Vertex arr: 0x654c0
+        Vertex arr in GPL: 0x5440
+        Weight arr: 0x65ec0
+        Vertex count: 0x7
+        Bone index 1: 0x42
+        Bone index 2: 0x43
+    0x5f668 - SK2 struct
+        Vertex arr: 0x65540
+        Vertex arr in GPL: 0x54c0
+        Weight arr: 0x65ee0
+        Vertex count: 0x3
+        Bone index 1: 0x52
+        Bone index 2: 0x53
+    0x5f6dc - SKAcc struct
+        Vertex arr: 0x65f00
+        Destination arr: 0x66000
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66040
+        Vertex count: 0x14
+        Bone index: 0x3f
+    0x5f720 - SKAcc struct
+        Vertex arr: 0x66060
+        Destination arr: 0x66160
+        Destination arr in GPL: 0x0
+        Weight arr: 0x661a0
+        Vertex count: 0x14
+        Bone index: 0x1b
+    0x5f764 - SKAcc struct
+        Vertex arr: 0x661c0
+        Destination arr: 0x662e0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66320
+        Vertex count: 0x18
+        Bone index: 0x12
+    0x5f7a8 - SKAcc struct
+        Vertex arr: 0x66340
+        Destination arr: 0x663e0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66400
+        Vertex count: 0xd
+        Bone index: 0x9
+    0x5f7ec - SKAcc struct
+        Vertex arr: 0x66420
+        Destination arr: 0x664c0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x664e0
+        Vertex count: 0xd
+        Bone index: 0xe
+    0x5f830 - SKAcc struct
+        Vertex arr: 0x66500
+        Destination arr: 0x665c0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x665e0
+        Vertex count: 0xf
+        Bone index: 0x14
+    0x5f874 - SKAcc struct
+        Vertex arr: 0x66600
+        Destination arr: 0x66660
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66680
+        Vertex count: 0x8
+        Bone index: 0x15
+    0x5f8b8 - SKAcc struct
+        Vertex arr: 0x666a0
+        Destination arr: 0x66740
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66760
+        Vertex count: 0xc
+        Bone index: 0x32
+    0x5f8fc - SKAcc struct
+        Vertex arr: 0x66780
+        Destination arr: 0x66840
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66860
+        Vertex count: 0xf
+        Bone index: 0x38
+    0x5f940 - SKAcc struct
+        Vertex arr: 0x66880
+        Destination arr: 0x668e0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66900
+        Vertex count: 0x8
+        Bone index: 0x39
+    0x5f984 - SKAcc struct
+        Vertex arr: 0x66920
+        Destination arr: 0x66960
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66980
+        Vertex count: 0x3
+        Bone index: 0x1e
+    0x5f9c8 - SKAcc struct
+        Vertex arr: 0x669a0
+        Destination arr: 0x669e0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66a00
+        Vertex count: 0x3
+        Bone index: 0x42
+    0x5fa0c - SKAcc struct
+        Vertex arr: 0x66a20
+        Destination arr: 0x66a60
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66a80
+        Vertex count: 0x4
+        Bone index: 0x1c
+    0x5fa50 - SKAcc struct
+        Vertex arr: 0x66aa0
+        Destination arr: 0x66ae0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66b00
+        Vertex count: 0x3
+        Bone index: 0x21
+    0x5fa94 - SKAcc struct
+        Vertex arr: 0x66b20
+        Destination arr: 0x66b60
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66b80
+        Vertex count: 0x3
+        Bone index: 0x25
+    0x5fad8 - SKAcc struct
+        Vertex arr: 0x66ba0
+        Destination arr: 0x66be0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66c00
+        Vertex count: 0x3
+        Bone index: 0x29
+    0x5fb1c - SKAcc struct
+        Vertex arr: 0x66c20
+        Destination arr: 0x66c60
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66c80
+        Vertex count: 0x3
+        Bone index: 0x2d
+    0x5fb60 - SKAcc struct
+        Vertex arr: 0x66ca0
+        Destination arr: 0x66ce0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66d00
+        Vertex count: 0x4
+        Bone index: 0x22
+    0x5fba4 - SKAcc struct
+        Vertex arr: 0x66d20
+        Destination arr: 0x66d40
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66d60
+        Vertex count: 0x2
+        Bone index: 0x23
+    0x5fbe8 - SKAcc struct
+        Vertex arr: 0x66d80
+        Destination arr: 0x66dc0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66de0
+        Vertex count: 0x4
+        Bone index: 0x26
+    0x5fc2c - SKAcc struct
+        Vertex arr: 0x66e00
+        Destination arr: 0x66e20
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66e40
+        Vertex count: 0x2
+        Bone index: 0x27
+    0x5fc70 - SKAcc struct
+        Vertex arr: 0x66e60
+        Destination arr: 0x66ea0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66ec0
+        Vertex count: 0x4
+        Bone index: 0x2a
+    0x5fcb4 - SKAcc struct
+        Vertex arr: 0x66ee0
+        Destination arr: 0x66f00
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66f20
+        Vertex count: 0x2
+        Bone index: 0x2b
+    0x5fcf8 - SKAcc struct
+        Vertex arr: 0x66f40
+        Destination arr: 0x66f60
+        Destination arr in GPL: 0x0
+        Weight arr: 0x66f80
+        Vertex count: 0x2
+        Bone index: 0x2e
+    0x5fd3c - SKAcc struct
+        Vertex arr: 0x66fa0
+        Destination arr: 0x66fe0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x67000
+        Vertex count: 0x4
+        Bone index: 0x40
+    0x5fd80 - SKAcc struct
+        Vertex arr: 0x67020
+        Destination arr: 0x67060
+        Destination arr in GPL: 0x0
+        Weight arr: 0x67080
+        Vertex count: 0x3
+        Bone index: 0x45
+    0x5fdc4 - SKAcc struct
+        Vertex arr: 0x670a0
+        Destination arr: 0x670e0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x67100
+        Vertex count: 0x3
+        Bone index: 0x49
+    0x5fe08 - SKAcc struct
+        Vertex arr: 0x67120
+        Destination arr: 0x67160
+        Destination arr in GPL: 0x0
+        Weight arr: 0x67180
+        Vertex count: 0x3
+        Bone index: 0x4d
+    0x5fe4c - SKAcc struct
+        Vertex arr: 0x671a0
+        Destination arr: 0x671e0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x67200
+        Vertex count: 0x3
+        Bone index: 0x51
+    0x5fe90 - SKAcc struct
+        Vertex arr: 0x67220
+        Destination arr: 0x67260
+        Destination arr in GPL: 0x0
+        Weight arr: 0x67280
+        Vertex count: 0x4
+        Bone index: 0x46
+    0x5fed4 - SKAcc struct
+        Vertex arr: 0x672a0
+        Destination arr: 0x672c0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x672e0
+        Vertex count: 0x2
+        Bone index: 0x47
+    0x5ff18 - SKAcc struct
+        Vertex arr: 0x67300
+        Destination arr: 0x67340
+        Destination arr in GPL: 0x0
+        Weight arr: 0x67360
+        Vertex count: 0x4
+        Bone index: 0x4a
+    0x5ff5c - SKAcc struct
+        Vertex arr: 0x67380
+        Destination arr: 0x673a0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x673c0
+        Vertex count: 0x2
+        Bone index: 0x4b
+    0x5ffa0 - SKAcc struct
+        Vertex arr: 0x673e0
+        Destination arr: 0x67420
+        Destination arr in GPL: 0x0
+        Weight arr: 0x67440
+        Vertex count: 0x4
+        Bone index: 0x4e
+    0x5ffe4 - SKAcc struct
+        Vertex arr: 0x67460
+        Destination arr: 0x67480
+        Destination arr in GPL: 0x0
+        Weight arr: 0x674a0
+        Vertex count: 0x2
+        Bone index: 0x4f
+    0x60028 - SKAcc struct
+        Vertex arr: 0x674c0
+        Destination arr: 0x674e0
+        Destination arr in GPL: 0x0
+        Weight arr: 0x67500
+        Vertex count: 0x2
+        Bone index: 0x52

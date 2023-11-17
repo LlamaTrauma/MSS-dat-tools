@@ -17,7 +17,7 @@ class GPL(FileChunk):
         self.geoDescriptors = [
             self.add_child(self.descriptorPtr + x * 8, 8, GEODescriptor, "descriptor").analyze(x) for x in range(self.numDescriptors)
         ]
-    
+
     def toFile(self, outdir, actor):
         for i, descriptor in enumerate(self.geoDescriptors):
             descriptor.layout.toFile(
@@ -56,7 +56,9 @@ class DummyAttribute():
 
 class DOLayout(FileChunk):
     def analyze(self):
+        print(self.absolute)
         self.DOPositionHeaderptr = self.word()
+        print(self.DOPositionHeaderptr)
         self.DOColorHeaderPtr = self.word()
         self.DOTextureDataHeaderPtr = self.word()
         self.DOLightingHeaderPtr = self.word()
@@ -74,49 +76,8 @@ class DOLayout(FileChunk):
         self.pad16 = intFromBytes(self.read(2))
         return self
 
-    def toFile(self, outname, transformation = []):
-        # print ("\nWriting to " + outname + '\n')
-        if len(transformation) == 0:
-            transformation = np.identity(4)
-        positions = self.DOPositionHeader.data
-        if len(positions) == 0:
-            return
-        positions = [np.matmul(np.array([pos[:3] + [1]]), transformation)[0][:3] for pos in positions]
-        normals = self.DOLightingHeader.data
-        transformation = np.linalg.inv(transformation)
-        transformation = transformation.transpose()
-        normals = [np.matmul(np.array([normal[:3] + [1]]), transformation)[0][:3] for normal in normals]
-        # for i, tex in enumerate(self.DOTextureDataHeaders):
-        #     print ("texture " + str(i) + " has " + str(tex.numTextureCoords) + " coords")
-        texChannel = 0
-        textureCoords = []
-        if len(self.DOTextureDataHeaders):
-            textureCoords = self.DOTextureDataHeaders[0].data
-            textureCoords = [[c[0], c[1]] for c in textureCoords]
-        outfile = open(outname, 'w')
-        outfile.write('mtllib textures.mtl\n')
-        for position in positions:
-            outfile.write('v ' + str(position[0]) + ' ' + str(position[1]) + ' ' + str(position[2]) + '\n')
-        for coord in textureCoords:
-            x = coord[0]
-            y = coord[1]
-            # It goes clamp, repeat, mirror, max tex wrap mode
-            # wraps and wrapt are typically 1 (GX_REPEAT)
-            # Because blender flips the y axis
-            y = -y
-            outfile.write('vt ' + str(x) + ' ' + str(y) + '\n')
-        for normal in normals:
-            l = (normal[0] ** 2 + normal[1] ** 2 + normal[2] ** 2) ** 0.5
-            if l > 0.1:
-                outfile.write('vn ' + str(normal[0]) + ' ' + str(normal[1]) + ' ' + str(normal[2]) + '\n')
-            else:
-                outfile.write('vn 1 0 0\n')
+    def getTriangles(self):
         state = {
-            'texture': {
-                'index': 0,
-                'wrapt': 0,
-                'wraps': 0,
-            },
             'attributes': {
                 'color0': DummyAttribute(),
                 'color1': DummyAttribute(),
@@ -130,31 +91,11 @@ class DOLayout(FileChunk):
         state['attributes']['lighting'] = self.DOLightingHeader
         for ind, val in enumerate(self.DOTextureDataHeaders):
             state['attributes']['texture' + str(ind)] = val
-        # print ("Textures: " + ', '.join([
-        #     str(x.paletteName) 
-        #     + " at ptr " + hex(x.palettePtr)
-        #     + " with component count " + str(x.compCount) for x in self.DOTextureDataHeaders]))
-        includeLighting = len(normals) > 10
-        includeTextures = len(textureCoords) > 0
+        out = []
         for displayState in self.DODisplayHeader.displayStates:
             displayState.updateState(state)
-            faces = displayState.primitiveList.draw(state)
-            outfile.write('usemtl ' + str(state['texture']['index']) + '\n')
-            outfile.write('s off\n')
-            for face in faces:
-                out = 'f '
-                for vertex in face:
-                    position = vertex['position'] if 'position' in vertex else ''
-                    textureKey = "texture" + str(texChannel)
-                    texture = vertex[textureKey] if textureKey in vertex else ''
-                    lighting = vertex['lighting'] if 'lighting' in vertex else ''
-                    if includeLighting:
-                        out += str(position) + '/' + str(texture) + '/' + str(lighting) + ' '
-                    else:
-                        out += str(position) + '/' + str(texture) + ' '
-                outfile.write(out[:-1] + '\n')
-        # print ("wrote to " + str(outname))
-        outfile.close()
+            out.append({'state': state.copy(), 'triangles': displayState.primitiveList.draw(state)})
+        return out
 
     def description(self):
         desc = super().description()
@@ -167,6 +108,9 @@ class DOPositionHeader(FileChunk):
         self.numPositions = self.half()
         self.quantizeInfo = self.byte()
         self.compCount = self.byte()
+        # print(hex(self.quantizeInfo))
+        # print(hex(self.parentClass(DOLayout).absolute + self.positionArrPtr))
+        # print(hex(self.numPositions * 6 * 2))
         self.data = getQuantizedData(self.f, self.parentClass(DOLayout).absolute + self.positionArrPtr, self.numPositions, self.compCount, self.quantizeInfo)
         return self
 
@@ -276,22 +220,15 @@ class DODisplayState(FileChunk):
                 setting = self.setting
                 # print("setting is " + '{:032b}'.format(setting))
                 index = setting & 0b0001111111111111
-                # TODO: Fix this with a bitshift if coord ever becomes relevant
-                # Why don't I just do it now? idk
-                coord = setting & 0b1110000000000000
+                coord = (setting >> 13) & 0b111
                 setting >>= 16
                 wraps = setting & 0b1111
                 setting >>= 4
                 wrapt = setting & 0b1111
-                # print ("texture coord " + str(coord) + " set to texture " + str(index))
-                # I think textures with a non-zero coord are just specular something-or-other generally, not gonna worry about it
-                if coord == 0:                    
-                    state['texture']['index'] = index
-                    state['texture']['wraps'] = wraps
-                    state['texture']['wrapt'] = wrapt
-                    # print ("texture layer 0 set to index " + hex(index) + " and wraps " + hex(wraps) + " and wrapt " + hex(wrapt))
-                # else:
-                #     print("skipped setting texture index to " + str(index))
+                state['texture'+str(coord)] = {}
+                state['texture'+str(coord)]['index'] = index
+                state['texture'+str(coord)]['wraps'] = wraps
+                state['texture'+str(coord)]['wrapt'] = wrapt
             case 3:
                 def updateStateDict(state, key, setting):
                     setting = setting & 0b11
@@ -331,7 +268,6 @@ class PrimitiveList(FileChunk):
     # 0x90 for GXStart
     # 0x0 - 0x7 for vertex format table index
     # Primitive type (triangles are 0x3, quads are 0x6?)
-    # The bat is hitting 0x98 which is out of the reange of all the indexes, some kind of control value? Maybe there's a value for the number of vertices after all
     def analyze(self):
         self.data = []
         l = self.length
@@ -397,9 +333,7 @@ class PrimitiveList(FileChunk):
                         index += self.data[data_index]
                         index_size -= 1
                         data_index += 1
-                    # if attribute.at(index) != None:
-                        # key = ''.join(c for c in key if not (ord(c) >= ord('0') and ord(c) <= ord('9')))
-                    vertex[key] = index + 1
+                    vertex[key] = index
                 vertexes.append(vertex)
                 vertexCount -= 1
             match primitive:
@@ -417,7 +351,9 @@ class PrimitiveList(FileChunk):
                         order = not order
                 case 0x80:
                     # GX_QUADS
-                    faces += [vertexes[x:x+4] for x in range(0, len(vertexes), 4)]
+                    for x in range(0, len(vertexes), 4):
+                        faces.append([vertexes[x], vertexes[x+1], vertexes[x+2]])
+                        faces.append([vertexes[x], vertexes[x+2], vertexes[x+3]])
                 case _:
                     print ("primitive type " + hex(primitive) + " not supported")
                     exit(0)

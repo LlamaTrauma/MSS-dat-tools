@@ -88,13 +88,6 @@ class SequentialData:
         self.f.seek(self.absolute + self.pos)
         self.pos += 4
         return struct.unpack('>f', self.f.read(4))[0]
-
-    def single(self):
-        if self.length > 0 and self.pos + 4 > self.length:
-            warnings.warn("Read oob at " + hex(self.absolute) + " + " + hex(self.pos))
-        self.f.seek(self.absolute + self.pos)
-        self.pos += 2
-        return struct.unpack('>f', self.f.read(2))[0]
     
     def half(self):
         if self.length > 0 and self.pos + 2 > self.length:

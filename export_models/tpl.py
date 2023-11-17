@@ -31,94 +31,6 @@ class TEXPalette(FileChunk):
             # self.dataLens[ptr] = dataOffsets[-1] - ptr
         self.dataLens[dataOffsets[-1]] = self.length - dataOffsets[-1]
 
-    def writeChildrenToFile(self, outdir):
-        # Generate the mtl file as we go along
-        mtl = open(outdir + "textures.mtl", 'w')
-        for ind, descriptor in enumerate(self.descriptors):
-            child = descriptor
-            dataLength = child.height * child.width * {0:4,1:8,2:8,3:16,4:16,5:16,6:32,8:4,9:8,10:16,14:4}[child.format] >> 3
-            hasPalette = descriptor.paletteDataPtr > 0
-            paletteInd = 0
-            while paletteInd <= 2 * hasPalette:
-                fname = outdir + str(ind) + '.tpl'
-                pngname = str(ind) + '.png'
-                if hasPalette:
-                    fname = outdir + str(ind) + '_' + str(paletteInd) + '.tpl'
-                    pngname = str(ind) + '_' + str(paletteInd) + '.png'
-
-                out = open(fname, 'wb')
-                # TEXPalette
-                out.write(itb(0x0020AF30, 4))
-                out.write(itb(1, 4))
-                out.write(itb(0xC, 4))
-
-                # TEXDescriptor
-                out.write(itb(0x14, 4))
-                if hasPalette:
-                    out.write(itb(0x38, 4))
-                else:
-                    out.write(itb(0, 4))
-
-                # TEXHeader
-                out.write(itb(child.height, 2))
-                out.write(itb(child.width, 2))
-                out.write(itb(child.format, 4))
-                out.write(itb(0x40 + hasPalette * 0x20, 4))
-                out.write(itb(child.wrapS, 4))
-                out.write(itb(child.wrapT, 4))
-                out.write(itb(child.minFilter, 4))
-                out.write(itb(child.magFilter, 4))
-                out.write(itb(child.LODBias, 4))
-                out.write(itb(child.edgeLODEnable, 1))
-                out.write(itb(child.minLOD, 1))
-                out.write(itb(child.maxLOD, 1))
-                out.write(itb(child.unpacked, 1))
-
-                paletteDataLen = self.dataLens[descriptor.paletteDataPtr]
-                paletteDataOffset = 0
-                paletteDataPad = 0
-                if hasPalette:
-                    paletteDataOffset = 0x60 + dataLength
-                    mod = paletteDataOffset % 0x20
-                    if mod != 0:
-                        paletteDataPad = 0x20 - mod
-                        paletteDataOffset += paletteDataPad
-                    # Palette header
-                    out.write(itb(paletteDataLen >> 1, 2))
-                    out.write(itb(1, 1))
-                    out.write(itb(0, 1))
-                    # Guessing the format here - 2 seems to usually work
-                    out.write(itb(paletteInd, 4))
-                    out.write(itb(paletteDataOffset, 4))
-
-                # Pad to multiple of 0x20 (0x40 or 0x60 here)
-                out.write(itb(0, 0x8 + hasPalette * 0x14))
-                self.seek(child.dataPtr)
-                out.write(self.read(dataLength))
-                if hasPalette:
-                    out.write(itb(0, paletteDataPad))
-                    self.seek(child.paletteDataPtr)
-                    out.write(self.read(paletteDataLen))
-                out.close()
-                os.system('wimgt decode -q -d ' + outdir + pngname + ' ' + fname)
-                # os.remove(fname)
-                paletteInd += 1
-
-            mtl.write('newmtl ' + str(ind) + '\n')
-            # mtl.write('Ns 250\n')
-            # mtl.write('Ka 1 1 1\n')
-            mtl.write('Kd 1 1 1\n')
-            # mtl.write('Ks 1 1 1\n')
-            # mtl.write('Ni 1\n')
-            # mtl.write('d 1\n')
-            # mtl.write('illum 0\n')
-            if hasPalette:
-                mtl.write('map_Kd ' + str(ind) + '_2.png' + '\n')
-            else:
-                mtl.write('map_Kd ' + pngname + '\n')
-
-        mtl.close()
-
 class TEXDescriptor(FileChunk):
     def analyze(self):
         self.dataPtr = self.word()
@@ -137,7 +49,9 @@ class TEXDescriptor(FileChunk):
         # if self.format != 0xe:
         # print ("format is " + hex(self.format))
         # print ("offset is " + hex(self.offset) + ", data ptr is " + hex(self.dataPtr) + '\n')
-        self.read(4)
+        self.paletteEntries = self.half()
+        self.paletteFormat = self.byte()
+        self.read(1)
         self.read(4)
         # Don't know where these are
         self.LODBias = 0
@@ -151,3 +65,66 @@ class TEXDescriptor(FileChunk):
         desc += "\nData ptr: " + hex(self.parent.absolute + self.dataPtr)
         desc += "\nFormat: " + hex(self.format)
         return desc
+
+    def toFile(self, path):
+        dataLength = self.height * self.width * {0:4,1:8,2:8,3:16,4:16,5:16,6:32,8:4,9:8,10:16,14:4}[self.format] >> 3
+        hasPalette = self.paletteDataPtr > 0
+        fname = path + '.tpl'
+        pngname = path + '.png'
+
+        out = open(fname, 'wb')
+        # TEXPalette
+        out.write(itb(0x0020AF30, 4))
+        out.write(itb(1, 4))
+        out.write(itb(0xC, 4))
+
+        # TEXDescriptor
+        out.write(itb(0x14, 4))
+        if hasPalette:
+            out.write(itb(0x38, 4))
+        else:
+            out.write(itb(0, 4))
+
+        # TEXHeader
+        out.write(itb(self.height, 2))
+        out.write(itb(self.width, 2))
+        out.write(itb(self.format, 4))
+        out.write(itb(0x40 + hasPalette * 0x20, 4))
+        out.write(itb(self.wrapS, 4))
+        out.write(itb(self.wrapT, 4))
+        out.write(itb(self.minFilter, 4))
+        out.write(itb(self.magFilter, 4))
+        out.write(itb(self.LODBias, 4))
+        out.write(itb(self.edgeLODEnable, 1))
+        out.write(itb(self.minLOD, 1))
+        out.write(itb(self.maxLOD, 1))
+        out.write(itb(self.unpacked, 1))
+
+        paletteDataLen = self.paletteEntries * 2
+        paletteDataOffset = 0
+        paletteDataPad = 0
+        if hasPalette:
+            paletteDataOffset = 0x60 + dataLength
+            mod = paletteDataOffset % 0x20
+            if mod != 0:
+                paletteDataPad = 0x20 - mod
+                paletteDataOffset += paletteDataPad
+            # Palette header
+            out.write(itb(self.paletteEntries, 2))
+            out.write(itb(1, 1))
+            out.write(itb(0, 1))
+            # Guessing the format here - 2 seems to usually work
+            out.write(itb(self.paletteFormat, 4))
+            out.write(itb(paletteDataOffset, 4))
+
+        # Pad to multiple of 0x20 (0x40 or 0x60 here)
+        out.write(itb(0, 0x8 + hasPalette * 0x14))
+        self.parent.seek(self.dataPtr)
+        out.write(self.parent.read(dataLength))
+        if hasPalette:
+            out.write(itb(0, paletteDataPad))
+            self.parent.seek(self.paletteDataPtr)
+            out.write(self.parent.read(paletteDataLen))
+        out.close()
+        os.system('wimgt decode -q -d ' + pngname + ' ' + fname)
+        os.remove(fname)
