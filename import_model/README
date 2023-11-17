@@ -1,4 +1,0 @@
-Put a folder in this directory with an obj file called 'stadium.obj' and a mtl file 'stadium.mtl' (I'm hardcoding the file paths for no good reason and dealing with stadiums currently)
-Switch the OBJImport at the end of the file to that folder.
-Run import.py, a c3 file named out will be created in that folder.
-Shadows are weird, there's some hacky logic in the shadowType method of TextureGroup that you might need to play with.
